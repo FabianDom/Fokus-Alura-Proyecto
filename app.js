@@ -4,6 +4,8 @@ let botonLargo = document.querySelector(".app__card-button--largo");
 let htmlContexto = document.querySelector("html");
 let imagenFondo = document.querySelector(".app__image");
 let titulo = document.querySelector(".app__title");
+let botones = document.querySelectorAll('.app__card-button')
+let musica = document.querySelector('#alternar-musica')
 
 function cambiarContexto(contexto) {
   htmlContexto.setAttribute("data-contexto", contexto);
@@ -25,15 +27,21 @@ function cambiarContexto(contexto) {
     default:
       break;
   }
+  botones.forEach(function(contexto) {
+    contexto.classList.remove('active')
+  })
 }
 botonCorto.addEventListener("click", function () {
   cambiarContexto("descanso-corto");
+  botonCorto.classList.add('active')
 });
 
 botonEnfoque.addEventListener("click", function () {
   cambiarContexto("enfoque");
+  botonEnfoque.classList.add('active')
 });
 
 botonLargo.addEventListener("click", function () {
   cambiarContexto("descanso-largo");
+  botonLargo.classList.add('active')
 });
